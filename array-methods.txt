@@ -1,0 +1,102 @@
+Javascript - array methods 06/29
+
+-Array methods are functions built-in to JavaScript that we can apply to our arrays. Let’s use these arrays to test the various array methods: 
+
+use strict - without "use strict", you could say...
+test = "Chris" (without using let, const, var)
+"use strict" forces you to write code properly
+
+
+1. forEach()
+The forEach() method executes a provided function once for each element of the array. for this example, each element of this array will be called "number" (singular version of the parameter)
+-03-array-methdods - line 28-41
+
+
+2. filter()
+The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+The filter function needs a callback function
+-return anArrayOfLaptops.filter(()=> {})
+-A new array with the elements that pass the test. If no elements pass the test, an empty array will be returned.
+callbackFn
+Function is a predicate, to test each element of the array. Return a value that coerces to true to keep the element, or to false otherwise.
+
+
+3. find() 
+The find() method returns the FIRST element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+
+const array1 = [5, 12, 8, 130, 44];
+
+const found = array1.find(element => element > 10);
+
+console.log(found);
+// expected output: 12
+
+
+
+4. findIndex() 
+The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+
+
+5. some() 
+The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
+
+const array = [1, 2, 3, 4, 5];
+
+// checks whether an element is even
+const even = (element) => element % 2 === 0;
+
+console.log(array.some(even));
+// expected output: true
+
+
+
+
+6. map() 
+The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+return arrayOfNumbers.map(callback function goes here)()=> {}
+
+
+7. reduce()
+-reduces an array down to a single value
+const calcSumV2 = (arrayOfNumbers) => {
+  return arrayOfNumbers.reduce((previousValue, currentValue) => {
+    return previousValue + currentValue;
+  });
+};
+**FIRST ARGUMENT OF CALLBACK FUNCTION IS PREVIOUS VALUE (all others are the element)
+**similar to "for each" sum, but without having to make other variables
+
+
+8. splice()
+The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place. To access part of an array without modifying it, see slice().
+
+objects = [{
+brand : "Apple"
+size : 15
+price : 1600
+touchscreen : false
+
+   }]
+
+
+9. push()
+The push() method adds zero or more elements to the end of an array and returns the new length of the array.
+unshift() 
+
+
+6/30
+Lab review
+-extended challenge 2
+const countElements = (array) => {
+  const newObject = {};
+  array.forEach((letter) => {
+    if (newObject[letter] === undefined) {
+      newObject[letter] = 1;
+    } else {
+      newObject[letter]++;
+    }
+  });
+  return newObject;
+};
+console.log(countElements(["a", "b", "a", "c", "a", "r"]));
+
